@@ -8,7 +8,7 @@ import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { CTASection } from '@/components/sections/CTASection';
 import { buildBreadcrumbSchema } from '@/lib/schema';
-import { NAP, HOURS, SITE_URL, SOCIAL } from '@/lib/siteConfig';
+import { NAP, HOURS, SITE_URL, SOCIAL, MAPS } from '@/lib/siteConfig';
 
 export const metadata: Metadata = {
   title: 'About Sansanich Car Detailing | North Port, FL Auto Detailer',
@@ -183,6 +183,31 @@ export default function AboutPage() {
                     <span className="text-lg">📸</span>
                     {SOCIAL.instagramHandle}
                     <span className="text-[#555]">({SOCIAL.instagramFollowers} followers)</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* GMB Map */}
+              <div className="rounded-xl overflow-hidden border border-[#1e1e1e]">
+                <iframe
+                  src={MAPS.embedUrl}
+                  width="100%"
+                  height="220"
+                  style={{ border: 0, display: 'block' }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="Sansanich Car Detailing — North Port, FL"
+                />
+                <div className="bg-[#111] px-5 py-3 flex items-center justify-between gap-4">
+                  <p className="text-[#666] text-xs truncate">{NAP.address.full}</p>
+                  <a
+                    href={MAPS.directionsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-[#d4a93a] hover:text-[#e8c96b] transition-colors shrink-0"
+                  >
+                    Get Directions →
                   </a>
                 </div>
               </div>

@@ -4,7 +4,7 @@ import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { ContactForm } from '@/components/ContactForm';
 import { buildBreadcrumbSchema } from '@/lib/schema';
-import { NAP, HOURS, SOCIAL, SITE_URL } from '@/lib/siteConfig';
+import { NAP, HOURS, SOCIAL, MAPS, SITE_URL } from '@/lib/siteConfig';
 
 export const metadata: Metadata = {
   title: 'Contact & Get a Free Quote | Sansanich Car Detailing — (941) 800-8198',
@@ -153,38 +153,28 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              {/* Map placeholder */}
-              {/*
-                TODO: Replace the div below with a Google Maps iframe once you have the API key.
-                Add GOOGLE_MAPS_API_KEY to your .env.local file, then use:
+              {/* GMB Map embed */}
+              <div className="rounded-xl overflow-hidden border border-[#1e1e1e]">
                 <iframe
-                  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_MAPS_API_KEY}&q=4457+Langsom+Ln+North+Port+FL+34286`}
+                  src={MAPS.embedUrl}
                   width="100%"
-                  height="100%"
+                  height="280"
+                  style={{ border: 0, display: 'block' }}
                   allowFullScreen
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Sansanich Car Detailing location map"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="Sansanich Car Detailing — North Port, FL"
                 />
-              */}
-              <div className="bg-[#111] border border-[#1e1e1e] rounded-xl overflow-hidden h-56 flex items-center justify-center">
-                <div className="text-center p-6">
-                  <MapPin size={32} className="text-[#d4a93a] mx-auto mb-3" />
-                  <p className="text-white text-sm font-semibold mb-1">
-                    {NAP.address.street}
-                  </p>
-                  <p className="text-[#a0a0a0] text-sm mb-3">
-                    {NAP.address.city}, {NAP.address.state} {NAP.address.zip}
-                  </p>
+                <div className="bg-[#111] px-5 py-3 flex items-center justify-between gap-4">
+                  <p className="text-[#666] text-xs truncate">{NAP.address.full}</p>
                   <a
-                    href="https://maps.google.com/?q=4457+Langsom+Ln+North+Port+FL+34286"
+                    href={MAPS.directionsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs px-4 py-2 border border-[#2a2a2a] rounded-lg text-[#a0a0a0] hover:border-[#d4a93a] hover:text-[#d4a93a] transition-colors"
+                    className="text-xs text-[#d4a93a] hover:text-[#e8c96b] transition-colors shrink-0"
                   >
-                    Open in Google Maps →
+                    Get Directions →
                   </a>
-                  {/* Map embed activates when GOOGLE_MAPS_API_KEY is set in .env */}
                 </div>
               </div>
             </div>

@@ -48,9 +48,19 @@ export const RATINGS = {
   worstRating: 1,
 } as const;
 
+// Exact coordinates from GMB listing — used in schema.org geo + geo meta tags
 export const GEO = {
-  latitude: 27.0441,
-  longitude: -82.1498,
+  latitude: 27.105137,
+  longitude: -82.200253,
+} as const;
+
+export const MAPS = {
+  embedUrl:
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3551.624394105883!2d-82.20025292548766!3d27.105136751796483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88dcadf39e6c63f7%3A0x6f057c7f69340feb!2sSansanich%20Car%20Detailing!5e0!3m2!1sen!2s!4v1785997097538!5m2!1sen!2s',
+  placeUrl:
+    'https://www.google.com/maps/place/Sansanich+Car+Detailing/@27.105137,-82.200253,17z',
+  directionsUrl:
+    'https://maps.google.com/maps?daddr=4457+Langsom+Ln,+North+Port,+FL+34286',
 } as const;
 
 // ---------------------------------------------------------------------------

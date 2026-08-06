@@ -11,6 +11,7 @@ import {
   GEO,
   CITIES,
   SERVICES,
+  MAPS,
   type Service,
   type FAQ,
 } from './siteConfig';
@@ -73,8 +74,8 @@ export function buildLocalBusinessSchema() {
       longitude: GEO.longitude,
     },
 
-    // Map link
-    hasMap: `https://www.google.com/maps/search/Sansanich+Car+Detailing+4457+Langsom+Ln+North+Port+FL+34286`,
+    // Map link — points directly to verified GMB listing
+    hasMap: MAPS.placeUrl,
 
     // Hours — both string format (fast parsing) and spec format (rich results)
     openingHours: HOURS.openingHours,
@@ -117,10 +118,10 @@ export function buildLocalBusinessSchema() {
       worstRating: String(RATINGS.worstRating),
     },
 
-    // Cross-platform entity links — helps Google merge them into one entity
+    // Cross-platform entity links — helps Google merge them into one Knowledge Panel entity
     sameAs: [
       SOCIAL.instagram,
-      'https://www.google.com/maps/search/Sansanich+Car+Detailing+North+Port+FL',
+      MAPS.placeUrl,
     ],
   };
 }
