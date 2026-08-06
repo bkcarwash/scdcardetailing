@@ -67,11 +67,11 @@ export function Header() {
             <Image
               src="/logo.webp"
               alt="Sansanich Car Detailing logo"
-              width={48}
-              height={48}
-              className="h-10 w-10 lg:h-12 lg:w-12 object-contain"
+              width={56}
+              height={56}
+              className="h-12 w-12 lg:h-14 lg:w-14 object-contain mix-blend-screen"
               priority
-              sizes="48px"
+              sizes="56px"
             />
           </Link>
 
