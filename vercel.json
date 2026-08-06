@@ -54,7 +54,7 @@
       "permanent": true
     },
     {
-      "source": "/faq/:path*",
+      "source": "/faq/:path+",
       "destination": "/faq",
       "permanent": false
     }
