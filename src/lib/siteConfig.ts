@@ -1,6 +1,8 @@
 // Single source of truth for all business data — every page, component, and schema pulls from here.
 
-export const SITE_URL = 'https://sansanichcardetailing.com';
+// Canonical domain — www is the authoritative version. All canonicals, schemas,
+// sitemaps, and OG URLs must use this exact string. Non-www redirects to www via vercel.json.
+export const SITE_URL = 'https://www.sansanichcardetailing.com';
 
 export const NAP = {
   name: 'Sansanich Car Detailing',

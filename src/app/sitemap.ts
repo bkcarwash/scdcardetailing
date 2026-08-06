@@ -1,75 +1,78 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL, SERVICE_SLUGS, CITY_SLUGS } from '@/lib/siteConfig';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+// Real build date — NOT `new Date()`. A timestamp that changes every build
+// signals to Googlebot that every page "changed" constantly, which dilutes
+// crawl budget and signals. Bump this manually when content actually changes.
+const LAST_MODIFIED = new Date('2026-08-06');
 
-  // Static pages
+export default function sitemap(): MetadataRoute.Sitemap {
+  // Static pages — ordered by SEO priority
   const staticPages: MetadataRoute.Sitemap = [
     {
-      url: SITE_URL,
-      lastModified: now,
+      url: `${SITE_URL}/`,
+      lastModified: LAST_MODIFIED,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${SITE_URL}/services`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.9,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: 'monthly',
+      priority: 0.95,
     },
     {
       url: `${SITE_URL}/locations`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.9,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: 'monthly',
+      priority: 0.95,
     },
     {
       url: `${SITE_URL}/contact`,
-      lastModified: now,
+      lastModified: LAST_MODIFIED,
       changeFrequency: 'monthly',
-      priority: 0.85,
+      priority: 0.9,
     },
     {
       url: `${SITE_URL}/about`,
-      lastModified: now,
+      lastModified: LAST_MODIFIED,
       changeFrequency: 'monthly',
-      priority: 0.75,
+      priority: 0.8,
     },
     {
       url: `${SITE_URL}/reviews`,
-      lastModified: now,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/faq`,
+      lastModified: LAST_MODIFIED,
       changeFrequency: 'monthly',
       priority: 0.75,
     },
     {
-      url: `${SITE_URL}/faq`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
       url: `${SITE_URL}/gallery`,
-      lastModified: now,
-      changeFrequency: 'weekly',
+      lastModified: LAST_MODIFIED,
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
   ];
 
-  // Service pages
+  // Service pages — high commercial intent, high priority
   const servicePages: MetadataRoute.Sitemap = SERVICE_SLUGS.map((slug) => ({
     url: `${SITE_URL}/services/${slug}`,
-    lastModified: now,
+    lastModified: LAST_MODIFIED,
     changeFrequency: 'monthly' as const,
-    priority: 0.8,
+    priority: 0.85,
   }));
 
-  // Location pages
+  // Location pages — local SEO pages, near-equal to service pages
   const locationPages: MetadataRoute.Sitemap = CITY_SLUGS.map((slug) => ({
     url: `${SITE_URL}/locations/${slug}`,
-    lastModified: now,
+    lastModified: LAST_MODIFIED,
     changeFrequency: 'monthly' as const,
-    priority: 0.8,
+    priority: 0.85,
   }));
 
   return [...staticPages, ...servicePages, ...locationPages];
