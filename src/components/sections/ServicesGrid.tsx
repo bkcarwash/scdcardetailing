@@ -47,8 +47,26 @@ export function ServicesGrid() {
         ))}
       </div>
 
+      {/* Vehicle types note */}
+      <div className="mt-8 flex flex-wrap justify-center gap-3">
+        {['Cars', 'Trucks', 'SUVs', 'Vans', 'Fleets'].map((type) => (
+          <span
+            key={type}
+            className="px-3 py-1.5 bg-[#111] border border-[#1e1e1e] rounded-full text-xs text-[#666]"
+          >
+            {type}
+          </span>
+        ))}
+        <span className="px-3 py-1.5 bg-[rgba(212,169,58,0.08)] border border-[rgba(212,169,58,0.2)] rounded-full text-xs text-[#d4a93a]">
+          Mobile to you
+        </span>
+        <span className="px-3 py-1.5 bg-[rgba(212,169,58,0.08)] border border-[rgba(212,169,58,0.2)] rounded-full text-xs text-[#d4a93a]">
+          In-shop available
+        </span>
+      </div>
+
       {/* CTA */}
-      <div className="mt-12 text-center">
+      <div className="mt-8 text-center">
         <Link
           href="/services"
           className="inline-flex items-center gap-2 px-6 py-3 border border-[#2a2a2a] text-[#a0a0a0] rounded-lg hover:border-[#d4a93a] hover:text-[#d4a93a] transition-colors duration-200 text-sm font-medium"

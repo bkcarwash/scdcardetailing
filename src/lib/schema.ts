@@ -10,6 +10,7 @@ import {
   RATINGS,
   GEO,
   CITIES,
+  SERVICES,
   type Service,
   type FAQ,
 } from './siteConfig';
@@ -219,6 +220,69 @@ export function buildHowToSchema(service: Service) {
       name: s.step,
       text: s.description,
     })),
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Home page schema — LocalBusiness with makesOffer + hasOfferCatalog
+// Extends the base entity with service offerings for rich home page markup.
+// ---------------------------------------------------------------------------
+export function buildHomePageSchema() {
+  const offerCatalog = {
+    '@type': 'OfferCatalog',
+    '@id': `${SITE_URL}/#services`,
+    name: 'Car Detailing Services — Sansanich Car Detailing',
+    numberOfItems: SERVICES.length,
+    itemListElement: SERVICES.map((s, i) => ({
+      '@type': 'Offer',
+      position: i + 1,
+      itemOffered: {
+        '@type': 'Service',
+        '@id': `${SITE_URL}/services/${s.slug}#service`,
+        name: s.name,
+        description: s.shortDescription,
+        url: `${SITE_URL}/services/${s.slug}`,
+      },
+      price: s.priceRange.replace('Starting at $', ''),
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      description: s.priceRange,
+      areaServed: CITIES.map((city) => ({
+        '@type': 'City',
+        name: `${city.name}, ${city.state}`,
+      })),
+    })),
+  };
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'AutomotiveBusiness'],
+    '@id': BUSINESS_ID,
+    name: NAP.name,
+    url: SITE_URL,
+    telephone: NAP.phone,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: NAP.address.street,
+      addressLocality: NAP.address.city,
+      addressRegion: NAP.address.state,
+      postalCode: NAP.address.zip,
+      addressCountry: NAP.address.country,
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: GEO.latitude,
+      longitude: GEO.longitude,
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: String(RATINGS.ratingValue),
+      reviewCount: String(RATINGS.reviewCount),
+      bestRating: String(RATINGS.bestRating),
+      worstRating: String(RATINGS.worstRating),
+    },
+    hasOfferCatalog: offerCatalog,
+    makesOffer: offerCatalog.itemListElement,
   };
 }
 

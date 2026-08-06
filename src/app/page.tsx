@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { Hero } from '@/components/sections/Hero';
 import { TrustSignals } from '@/components/sections/TrustSignals';
 import { ServicesGrid } from '@/components/sections/ServicesGrid';
+import { HowItWorks } from '@/components/sections/HowItWorks';
+import { ExpertiseStory } from '@/components/sections/ExpertiseStory';
 import { WhyChooseUs } from '@/components/sections/WhyChooseUs';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { LocationsStrip } from '@/components/sections/LocationsStrip';
@@ -10,7 +12,7 @@ import { CTASection } from '@/components/sections/CTASection';
 import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { SectionWrapper, SectionHeading } from '@/components/ui/SectionWrapper';
-import { buildFAQSchema } from '@/lib/schema';
+import { buildFAQSchema, buildHomePageSchema } from '@/lib/schema';
 import { FAQS, SITE_URL } from '@/lib/siteConfig';
 import { HOME_PREVIEW_IMAGES } from '@/lib/images';
 
@@ -35,11 +37,12 @@ export default function HomePage() {
   return (
     <>
       <JsonLd schema={buildFAQSchema(homeFaqs)} />
+      <JsonLd schema={buildHomePageSchema()} />
 
       <Hero />
       <TrustSignals />
       <ServicesGrid />
-      <WhyChooseUs />
+      <HowItWorks />
 
       {/* Gallery preview section */}
       <section className="py-20 bg-[#0a0a0a]" aria-label="Before and after results">
@@ -86,6 +89,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <ExpertiseStory />
+      <WhyChooseUs />
       <Testimonials />
       <LocationsStrip />
 
