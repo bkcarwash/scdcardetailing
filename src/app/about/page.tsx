@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin, Phone, Clock, CheckCircle, Shield, Star, Users, Zap } from 'lucide-react';
+import { ABOUT_MOBILE_IMAGE } from '@/lib/images';
 import { SectionWrapper, SectionHeading } from '@/components/ui/SectionWrapper';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { JsonLd } from '@/components/ui/JsonLd';
@@ -114,59 +116,75 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* NAP Card */}
-          <div className="bg-[#111] border border-[#1e1e1e] rounded-2xl p-8">
-            <h3
-              className="text-white text-2xl mb-6"
-              style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.04em' }}
-            >
-              Find Us
-            </h3>
-            <div className="space-y-5">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-[rgba(212,169,58,0.1)] border border-[rgba(212,169,58,0.2)] flex items-center justify-center shrink-0">
-                  <MapPin size={18} className="text-[#d4a93a]" />
+          <div className="space-y-6">
+            {/* Mobile detailing in action */}
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+              <Image
+                src={ABOUT_MOBILE_IMAGE.src}
+                alt={ABOUT_MOBILE_IMAGE.alt}
+                fill
+                placeholder="blur"
+                blurDataURL={ABOUT_MOBILE_IMAGE.blur}
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <span className="absolute bottom-4 left-4 text-white text-sm font-semibold">Mobile service — we come to you</span>
+            </div>
+            {/* NAP Card */}
+            <div className="bg-[#111] border border-[#1e1e1e] rounded-2xl p-8">
+              <h3
+                className="text-white text-2xl mb-6"
+                style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.04em' }}
+              >
+                Find Us
+              </h3>
+              <div className="space-y-5">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-[rgba(212,169,58,0.1)] border border-[rgba(212,169,58,0.2)] flex items-center justify-center shrink-0">
+                    <MapPin size={18} className="text-[#d4a93a]" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-[#666] mb-1">Address</p>
+                    <p className="text-white text-sm leading-relaxed">{NAP.address.full}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-[#666] mb-1">Address</p>
-                  <p className="text-white text-sm leading-relaxed">{NAP.address.full}</p>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-[rgba(212,169,58,0.1)] border border-[rgba(212,169,58,0.2)] flex items-center justify-center shrink-0">
+                    <Phone size={18} className="text-[#d4a93a]" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-[#666] mb-1">Phone</p>
+                    <a
+                      href={`tel:${NAP.phone}`}
+                      className="text-[#d4a93a] hover:text-[#e8c96b] font-semibold transition-colors"
+                    >
+                      {NAP.phoneDisplay}
+                    </a>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-[rgba(212,169,58,0.1)] border border-[rgba(212,169,58,0.2)] flex items-center justify-center shrink-0">
-                  <Phone size={18} className="text-[#d4a93a]" />
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-[rgba(212,169,58,0.1)] border border-[rgba(212,169,58,0.2)] flex items-center justify-center shrink-0">
+                    <Clock size={18} className="text-[#d4a93a]" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-[#666] mb-1">Hours</p>
+                    <p className="text-white font-semibold">{HOURS.display}</p>
+                    <p className="text-[#a0a0a0] text-sm">7 days a week — call or text anytime</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-[#666] mb-1">Phone</p>
+                <div className="pt-4 border-t border-[#1e1e1e]">
                   <a
-                    href={`tel:${NAP.phone}`}
-                    className="text-[#d4a93a] hover:text-[#e8c96b] font-semibold transition-colors"
+                    href={SOCIAL.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-[#a0a0a0] hover:text-[#d4a93a] transition-colors text-sm"
                   >
-                    {NAP.phoneDisplay}
+                    <span className="text-lg">📸</span>
+                    {SOCIAL.instagramHandle}
+                    <span className="text-[#555]">({SOCIAL.instagramFollowers} followers)</span>
                   </a>
                 </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-[rgba(212,169,58,0.1)] border border-[rgba(212,169,58,0.2)] flex items-center justify-center shrink-0">
-                  <Clock size={18} className="text-[#d4a93a]" />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-[#666] mb-1">Hours</p>
-                  <p className="text-white font-semibold">{HOURS.display}</p>
-                  <p className="text-[#a0a0a0] text-sm">7 days a week — call or text anytime</p>
-                </div>
-              </div>
-              <div className="pt-4 border-t border-[#1e1e1e]">
-                <a
-                  href={SOCIAL.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-[#a0a0a0] hover:text-[#d4a93a] transition-colors text-sm"
-                >
-                  <span className="text-lg">📸</span>
-                  {SOCIAL.instagramHandle}
-                  <span className="text-[#555]">({SOCIAL.instagramFollowers} followers)</span>
-                </a>
               </div>
             </div>
           </div>

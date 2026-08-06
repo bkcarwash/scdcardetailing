@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import { CheckCircle, Clock, DollarSign, RotateCcw } from 'lucide-react';
+import { SERVICE_IMAGES } from '@/lib/images';
 import { SectionWrapper, SectionHeading } from '@/components/ui/SectionWrapper';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { JsonLd } from '@/components/ui/JsonLd';
@@ -70,6 +72,22 @@ export default async function ServicePage({
           }}
           aria-hidden="true"
         />
+        {/* Service hero image */}
+        {SERVICE_IMAGES[slug] && (
+          <div className="absolute inset-0">
+            <Image
+              src={SERVICE_IMAGES[slug].src}
+              alt={SERVICE_IMAGES[slug].alt}
+              fill
+              priority
+              placeholder="blur"
+              blurDataURL={SERVICE_IMAGES[slug].blur}
+              className="object-cover object-center opacity-20"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/80 to-[#080808]/40" />
+          </div>
+        )}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb
             items={[

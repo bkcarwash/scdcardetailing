@@ -1,9 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Star, Clock, MapPin, ChevronDown } from 'lucide-react';
 import { NAP, HOURS, RATINGS } from '@/lib/siteConfig';
 import { motion } from 'framer-motion';
+import { HERO_HOME } from '@/lib/images';
 
 const MotionDiv = motion.div;
 
@@ -13,8 +15,18 @@ export function Hero() {
       className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
       aria-label="Hero section"
     >
-      {/* Background — dark gradient with carbon fiber overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#111] to-[#0a0a0a]" />
+      {/* Background — real hero photo with dark overlay */}
+      <Image
+        src={HERO_HOME.src}
+        alt={HERO_HOME.alt}
+        fill
+        priority
+        placeholder="blur"
+        blurDataURL={HERO_HOME.blur}
+        className="object-cover object-center"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/80" />
       <div className="absolute inset-0 carbon-texture opacity-60" aria-hidden="true" />
 
       {/* Gold radial glow */}

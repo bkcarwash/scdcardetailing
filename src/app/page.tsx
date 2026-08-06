@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Hero } from '@/components/sections/Hero';
 import { TrustSignals } from '@/components/sections/TrustSignals';
 import { ServicesGrid } from '@/components/sections/ServicesGrid';
@@ -11,6 +12,7 @@ import { JsonLd } from '@/components/ui/JsonLd';
 import { SectionWrapper, SectionHeading } from '@/components/ui/SectionWrapper';
 import { buildFAQSchema } from '@/lib/schema';
 import { FAQS, SITE_URL } from '@/lib/siteConfig';
+import { HOME_PREVIEW_IMAGES } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Sansanich Car Detailing | Mobile & In-Shop | North Port, FL',
@@ -54,19 +56,22 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[
-              { label: 'Interior Detail', bg: 'from-[#1a0800] to-[#0a0500]' },
-              { label: 'Ceramic Coating', bg: 'from-[#001a0a] to-[#000a05]' },
-              { label: 'Paint Correction', bg: 'from-[#00081a] to-[#000410]' },
-              { label: 'Exterior Hand Wash', bg: 'from-[#1a0e00] to-[#0a0700]' },
-              { label: 'Headlight Restoration', bg: 'from-[#0d001a] to-[#06000a]' },
-              { label: 'Full Detail Package', bg: 'from-[#001a15] to-[#000a08]' },
-            ].map((item) => (
+            {HOME_PREVIEW_IMAGES.map((img) => (
               <div
-                key={item.label}
-                className={`aspect-video rounded-xl bg-gradient-to-br ${item.bg} border border-[#1e1e1e] flex items-end p-4`}
+                key={img.label}
+                className="relative aspect-video rounded-xl overflow-hidden border border-[#1e1e1e] group"
               >
-                <span className="text-xs text-[#555]">{item.label}</span>
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  placeholder="blur"
+                  blurDataURL={img.blur}
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-3 text-xs text-white font-semibold uppercase tracking-wider">{img.label}</span>
               </div>
             ))}
           </div>
