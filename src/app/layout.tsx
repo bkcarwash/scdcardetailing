@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Bebas_Neue } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
@@ -81,6 +81,33 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  // favicon.ico in /src/app/ is served automatically by Next.js App Router.
+  // We declare the PNG variants here so browsers & crawlers see them all.
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/favicon.ico' },
+    ],
+  },
+  manifest: '/site.webmanifest',
+};
+
+// Viewport / theme-color exported separately per Next.js App Router convention
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#d4a93a' },
+    { media: '(prefers-color-scheme: light)', color: '#d4a93a' },
+  ],
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -60,18 +61,18 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex flex-col leading-tight group"
+            className="flex items-center"
             aria-label="Sansanich Car Detailing — Home"
           >
-            <span
-              className="font-display text-xl lg:text-2xl tracking-widest text-white uppercase group-hover:text-gold transition-colors duration-200"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              Sansanich
-            </span>
-            <span className="text-[10px] lg:text-xs tracking-[0.25em] text-[#d4a93a] uppercase font-medium">
-              Car Detailing
-            </span>
+            <Image
+              src="/logo.webp"
+              alt="Sansanich Car Detailing logo"
+              width={48}
+              height={48}
+              className="h-10 w-10 lg:h-12 lg:w-12 object-contain"
+              priority
+              sizes="48px"
+            />
           </Link>
 
           {/* Desktop Nav */}

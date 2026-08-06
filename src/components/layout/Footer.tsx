@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, MapPin, Clock, Star } from 'lucide-react';
 import { NAP, HOURS, SOCIAL, RATINGS, SERVICES, CITIES } from '@/lib/siteConfig';
 
@@ -39,16 +40,26 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-flex flex-col leading-tight mb-6">
-              <span
-                className="text-2xl tracking-widest text-white uppercase"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                Sansanich
-              </span>
-              <span className="text-xs tracking-[0.25em] text-[#d4a93a] uppercase font-medium">
-                Car Detailing
-              </span>
+            <Link href="/" className="inline-flex items-center gap-3 mb-6" aria-label="Sansanich Car Detailing — Home">
+              <Image
+                src="/logo.webp"
+                alt="Sansanich Car Detailing logo"
+                width={48}
+                height={48}
+                className="h-12 w-12 object-contain"
+                sizes="48px"
+              />
+              <div className="flex flex-col leading-tight">
+                <span
+                  className="text-xl tracking-widest text-white uppercase"
+                  style={{ fontFamily: 'var(--font-display)' }}
+                >
+                  Sansanich
+                </span>
+                <span className="text-[10px] tracking-[0.25em] text-[#d4a93a] uppercase font-medium">
+                  Car Detailing
+                </span>
+              </div>
             </Link>
 
             <div className="space-y-3 text-sm text-[#666]">
