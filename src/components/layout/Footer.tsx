@@ -99,7 +99,7 @@ export function Footer() {
             </div>
 
             {/* Social */}
-            <div className="mt-4">
+            <div className="mt-4 flex flex-col gap-2">
               <a
                 href={SOCIAL.instagram}
                 target="_blank"
@@ -107,13 +107,25 @@ export function Footer() {
                 className="inline-flex items-center gap-2 text-sm text-[#666] hover:text-[#d4a93a] transition-colors"
                 aria-label="Follow Sansanich Car Detailing on Instagram"
               >
-                {/* Instagram icon SVG */}
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                   <circle cx="12" cy="12" r="4" />
                   <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
                 </svg>
                 <span>{SOCIAL.instagramHandle}</span>
+              </a>
+              <a
+                href="https://nextdoor.com/pages/sansanich-car-detailing/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-[#666] hover:text-[#d4a93a] transition-colors"
+                aria-label="Find Sansanich Car Detailing on Nextdoor"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                <span>Nextdoor</span>
               </a>
             </div>
           </div>
