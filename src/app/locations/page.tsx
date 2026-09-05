@@ -5,18 +5,18 @@ import { SectionWrapper, SectionHeading } from '@/components/ui/SectionWrapper';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { CTASection } from '@/components/sections/CTASection';
-import { buildBreadcrumbSchema } from '@/lib/schema';
+import { buildBreadcrumbSchema, buildItemListSchema } from '@/lib/schema';
 import { CITIES, NAP, SITE_URL } from '@/lib/siteConfig';
 
 export const metadata: Metadata = {
-  title: 'Car Detailing Service Areas | SW Florida | Sansanich',
+  title: 'Mobile Car Detailing Near Me — SW Florida | 11 Cities | Open 24 Hrs',
   description:
-    'Sansanich Car Detailing serves 11 cities across Southwest Florida from our North Port base. Mobile detailing to Port Charlotte, Venice, Sarasota, Englewood, Punta Gorda & more.',
+    'Mobile car detailing serving North Port, Port Charlotte, Punta Gorda, Venice, Sarasota, Englewood & more. We come to you. 5-star rated. Open 24 hrs. Call (941) 800-8198.',
   alternates: { canonical: `${SITE_URL}/locations` },
   openGraph: {
-    title: 'Mobile Car Detailing Service Areas | SW Florida | Sansanich',
+    title: 'Mobile Car Detailing Near Me — SW Florida | 11 Cities | Open 24 Hrs',
     description:
-      'Mobile car detailing serving North Port, Port Charlotte, Venice, Sarasota, Englewood, Punta Gorda, Wellen Park, Nokomis, Osprey, Rotonda West & Arcadia, FL.',
+      'Mobile car detailing serving North Port, Port Charlotte, Punta Gorda, Venice, Sarasota, Englewood, Wellen Park, Nokomis, Osprey, Rotonda West & Arcadia, FL. Open 24 hrs.',
     url: `${SITE_URL}/locations`,
   },
 };
@@ -26,10 +26,20 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Locations', url: `${SITE_URL}/locations` },
 ]);
 
+const locationsItemListSchema = buildItemListSchema(
+  CITIES.map((city) => ({
+    name: `Car Detailing in ${city.name}, ${city.state}`,
+    url: `${SITE_URL}/locations/${city.slug}`,
+    description: city.meta.description,
+  })),
+  'Mobile Car Detailing Service Areas — Sansanich Car Detailing'
+);
+
 export default function LocationsPage() {
   return (
     <>
       <JsonLd schema={breadcrumbSchema} />
+      <JsonLd schema={locationsItemListSchema} />
 
       {/* Hero */}
       <section className="pt-20 sm:pt-24 pb-16 bg-[#080808]">

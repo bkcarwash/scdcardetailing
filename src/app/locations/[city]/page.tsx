@@ -7,7 +7,7 @@ import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { CTASection } from '@/components/sections/CTASection';
-import { buildBreadcrumbSchema } from '@/lib/schema';
+import { buildBreadcrumbSchema, buildFAQSchema } from '@/lib/schema';
 import { CITIES, CITY_SLUGS, SERVICES, FAQS, NAP, HOURS, GEO, SITE_URL } from '@/lib/siteConfig';
 
 type CityPageProps = {
@@ -85,8 +85,10 @@ export default async function CityPage({
     priceRange: '$$',
   };
 
-  // Pick 4 relevant FAQs for this city page
-  const cityFaqs = FAQS.slice(0, 5);
+  // Use city-specific FAQs when available, fall back to general FAQs
+  const cityFaqs = city.cityFaqs && city.cityFaqs.length > 0
+    ? city.cityFaqs
+    : FAQS.slice(0, 5);
 
   // Build city-specific selling points using landmarks and neighborhoods
   const cityPoints = [
@@ -100,6 +102,7 @@ export default async function CityPage({
     <>
       <JsonLd schema={breadcrumbSchema} />
       <JsonLd schema={localBusinessSchema} />
+      <JsonLd schema={buildFAQSchema(cityFaqs)} />
 
       {/* Hero */}
       <section className="pt-20 sm:pt-24 pb-16 bg-[#080808] relative overflow-hidden">
@@ -130,7 +133,15 @@ export default async function CityPage({
               <span className="text-gradient-gold"> Car Detailing</span>
               <span className="text-white">, {city.state}</span>
             </h1>
-            <p className="text-[#a0a0a0] text-lg leading-relaxed mb-6">{city.intro}</p>
+            <p className="text-[#a0a0a0] text-lg leading-relaxed mb-4">{city.intro}</p>
+
+            {/* Quick Answer — targets AI Overviews and featured snippets */}
+            <div className="mb-6 p-4 bg-[rgba(212,169,58,0.06)] border border-[rgba(212,169,58,0.2)] rounded-xl text-sm text-[#c8c8c8] leading-relaxed">
+              <span className="font-semibold text-[#d4a93a]">Quick Answer: </span>
+              Sansanich Car Detailing offers professional mobile car detailing in {city.name}, FL — interior detailing from $150, exterior from $120, ceramic coating from $500. We come to your home or office. Open 24 hours. Call{' '}
+              <a href="tel:+19418008198" className="text-[#d4a93a] font-semibold hover:text-[#e8c96b] transition-colors">{NAP.phoneDisplay}</a>.
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="tel:+19418008198"

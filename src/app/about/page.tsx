@@ -7,7 +7,7 @@ import { SectionWrapper, SectionHeading } from '@/components/ui/SectionWrapper';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { CTASection } from '@/components/sections/CTASection';
-import { buildBreadcrumbSchema } from '@/lib/schema';
+import { buildBreadcrumbSchema, buildOrganizationSchema } from '@/lib/schema';
 import { NAP, HOURS, SITE_URL, SOCIAL, MAPS } from '@/lib/siteConfig';
 
 export const metadata: Metadata = {
@@ -23,10 +23,11 @@ export const metadata: Metadata = {
   },
 };
 
-const schema = buildBreadcrumbSchema([
+const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: SITE_URL },
   { name: 'About', url: `${SITE_URL}/about` },
 ]);
+const organizationSchema = buildOrganizationSchema();
 
 const VALUES = [
   {
@@ -66,7 +67,8 @@ const VEHICLE_TYPES = [
 export default function AboutPage() {
   return (
     <>
-      <JsonLd schema={schema} />
+      <JsonLd schema={breadcrumbSchema} />
+      <JsonLd schema={organizationSchema} />
 
       {/* Hero */}
       <section className="pt-20 sm:pt-24 pb-16 bg-[#080808]">
@@ -83,8 +85,8 @@ export default function AboutPage() {
               About{' '}
               <span className="text-gradient-gold">Sansanich Car Detailing</span>
             </h1>
-            <p className="text-[#a0a0a0] text-lg leading-relaxed">
-              We are a mobile and in-shop car detailing business based right here in North Port, Florida — passionate about paint care, driven by quality, and committed to bringing showroom-level results to your driveway.
+            <p className="text-[#a0a0a0] text-lg leading-relaxed" data-speakable>
+              Sansanich Car Detailing is a professional mobile and in-shop automotive detailing company based in North Port, Florida. We serve 11 cities across Southwest Florida — including Port Charlotte, Venice, Sarasota, and Punta Gorda — with ceramic coating, paint correction, interior detailing, and more. Open 24 hours, 7 days a week. Rated 5.0 stars on Google. Call (941) 800-8198 anytime.
             </p>
           </div>
         </div>

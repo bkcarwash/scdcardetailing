@@ -6,6 +6,7 @@ export const SITE_URL = 'https://www.sansanichcardetailing.com';
 
 export const NAP = {
   name: 'Sansanich Car Detailing',
+  shortName: 'SCD Car Detailing',
   address: {
     street: '4457 Langsom Ln',
     city: 'North Port',
@@ -80,6 +81,9 @@ export type Service = {
   whatsIncluded: string[];
   howTo: { step: string; description: string }[];
   faq: { question: string; answer: string }[];
+  metaTitle?: string;
+  metaDescription?: string;
+  quickAnswer?: string;
 };
 
 export const SERVICES: Service[] = [
@@ -129,6 +133,9 @@ export const SERVICES: Service[] = [
           'Yes. Pet hair removal is included in our interior detail or available as a standalone add-on service. We use specialized tools to lift embedded fur from fabric and carpet.',
       },
     ],
+    metaTitle: 'Interior Car Detailing North Port FL | From $150 | Mobile | Open 24 Hrs',
+    metaDescription: 'Deep interior car detailing in North Port & SW Florida. Steam cleaning, seat shampooing & odor removal. Mobile — we come to you. Starting at $150. Call (941) 800-8198.',
+    quickAnswer: 'Interior car detailing in North Port, FL starts at $150. Includes steam cleaning, seat shampooing, odor removal, and more. Mobile service — we come to your home or office. Open 24 hours. Call (941) 800-8198.',
   },
   {
     slug: 'exterior-detailing',
@@ -176,6 +183,9 @@ export const SERVICES: Service[] = [
           'Yes! We are a mobile detailing service. We come to your location in North Port, Port Charlotte, Venice, Sarasota, and surrounding areas in Southwest Florida.',
       },
     ],
+    metaTitle: 'Exterior Car Detailing North Port FL | From $120 | Mobile | Open 24 Hrs',
+    metaDescription: 'Professional exterior car detailing in North Port & SW Florida. Hand wash, clay bar & wax/sealant protection. Starting at $120. Mobile — we come to you. Call (941) 800-8198.',
+    quickAnswer: 'Exterior car detailing in North Port, FL starts at $120. Includes hand wash, clay bar treatment and wax or sealant protection. Mobile service available. Open 24 hours. Call (941) 800-8198.',
   },
   {
     slug: 'full-detailing',
@@ -216,6 +226,9 @@ export const SERVICES: Service[] = [
           'Absolutely. Regular full details protect your paint from UV and oxidation, maintain interior air quality, and preserve your vehicle\'s resale value. Most customers see a return at resale that far exceeds the cost.',
       },
     ],
+    metaTitle: 'Full Car Detail North Port FL — 5.0 Star | From $250 | Mobile | Open 24 Hrs',
+    metaDescription: 'Complete interior + exterior car detailing in North Port & SW Florida. Starting at $250. Steam, shampoo, polish & protect — showroom finish. Mobile service. Call (941) 800-8198.',
+    quickAnswer: 'A full car detail in North Port, FL starts at $250. Includes complete interior and exterior detailing — steam cleaning, shampooing, polishing, and paint protection. Mobile service available. Open 24 hours. Call (941) 800-8198.',
   },
   {
     slug: 'ceramic-coating',
@@ -268,6 +281,9 @@ export const SERVICES: Service[] = [
           'Our ceramic coating packages start at $500 for a single-stage coating on a standard vehicle. Multi-layer packages or paint correction add-ons are priced higher. Contact us for a free quote based on your vehicle\'s size and condition.',
       },
     ],
+    metaTitle: 'Ceramic Coating Near Me — North Port & Port Charlotte FL | From $500',
+    metaDescription: 'Professional ceramic coating in North Port, Port Charlotte & SW Florida. 2–5 year paint protection — hydrophobic, UV-resistant. Starting at $500. Free quote: (941) 800-8198.',
+    quickAnswer: 'Ceramic coating near North Port and Port Charlotte, FL starts at $500. Professional application lasts 2–5 years — protecting paint from UV, water, and scratches. Mobile service available. Free quote: call (941) 800-8198.',
   },
   {
     slug: 'paint-correction',
@@ -309,6 +325,9 @@ export const SERVICES: Service[] = [
           'Paint correction removes surface-level defects in the clear coat. Deep scratches that penetrate to the base coat or primer cannot be corrected by polishing — those require paint touch-up or respray. We\'ll let you know what to expect before we start.',
       },
     ],
+    metaTitle: 'Paint Correction Near Me — North Port FL | From $350 | 5-Star Rated',
+    metaDescription: 'Professional paint correction in North Port & SW Florida. Remove swirl marks, scratches & oxidation with machine polishing. Starting at $350. Free quote: (941) 800-8198.',
+    quickAnswer: 'Paint correction near North Port, FL starts at $350. Machine polishing removes swirl marks, light scratches, and oxidation from clear coat. Mobile service available. Open 24 hours. Call (941) 800-8198.',
   },
   {
     slug: 'headlight-restoration',
@@ -348,6 +367,8 @@ export const SERVICES: Service[] = [
           'Absolutely. OEM headlight replacement can cost $200–$800+ per side. Professional restoration costs a fraction of that and typically achieves 80–95% of new-lens clarity.',
       },
     ],
+    metaTitle: 'Headlight Restoration North Port FL | From $80 | Mobile | Open 24 Hrs',
+    metaDescription: 'Professional headlight restoration in North Port & SW Florida. Clear foggy, yellowed headlights. Starting at $80 — a fraction of replacement cost. Mobile service. Call (941) 800-8198.',
   },
   {
     slug: 'clay-bar-treatment',
@@ -382,6 +403,8 @@ export const SERVICES: Service[] = [
           'Put a clean plastic bag over your hand and run it over your washed paint. If you feel rough, gritty bumps — that\'s contamination. Claying removes it. Most vehicles in Florida need claying every 6–12 months due to sea salt, tree sap, and brake dust.',
       },
     ],
+    metaTitle: 'Clay Bar Treatment North Port FL | From $80 | Mobile | Open 24 Hrs',
+    metaDescription: 'Clay bar treatment in North Port & SW Florida. Remove embedded rail dust, brake dust & tree sap washing alone can\'t reach. Starting at $80. Mobile service. Call (941) 800-8198.',
   },
   {
     slug: 'hand-washing',
@@ -418,6 +441,9 @@ export const SERVICES: Service[] = [
           'Automatic car washes use rotating brushes that drag accumulated grit across your paint, causing thousands of micro-scratches (swirl marks) with every visit. These permanently dull your paint over time. Hand washing with proper technique and clean microfiber is the only way to wash a car without damaging the paint.',
       },
     ],
+    metaTitle: 'Hand Car Wash Near Me | North Port FL | From $50 | Mobile | Open 24 Hrs',
+    metaDescription: 'Professional hand car wash in North Port & SW Florida. Scratch-free two-bucket method with microfiber. Starting at $50. Mobile — we come to you. Call (941) 800-8198.',
+    quickAnswer: 'Hand car washing near North Port, FL starts at $50. We use the two-bucket method with premium microfiber mitts — scratch-free and safe for your paint. Mobile service available. Open 24 hours. Call (941) 800-8198.',
   },
   {
     slug: 'waxing-polishing',
@@ -453,6 +479,8 @@ export const SERVICES: Service[] = [
           'Carnauba wax gives a warm, deep glow but lasts 4–8 weeks. Synthetic sealants bond to the paint chemically and last 3–6 months. We offer both — wax for show, sealant for durability, and ceramic coatings for long-term protection.',
       },
     ],
+    metaTitle: 'Car Waxing & Polishing North Port FL | From $100 | Mobile | Open 24 Hrs',
+    metaDescription: 'Professional car waxing and polishing in North Port & SW Florida. Enhance gloss, fill light scratches & protect paint. Starting at $100. Mobile service. Call (941) 800-8198.',
   },
   {
     slug: 'stain-odor-removal',
@@ -493,6 +521,8 @@ export const SERVICES: Service[] = [
           'Yes. Enzyme cleaners specifically designed for urine break down uric acid crystals that cause the persistent smell. We flush the affected area with hot water extraction to remove all residue. Results depend on how long the stain has been set.',
       },
     ],
+    metaTitle: 'Car Odor & Stain Removal North Port FL | From $150 | Mobile | 24 Hrs',
+    metaDescription: 'Professional car stain and odor removal in North Port & SW Florida. Enzyme treatment, steam & ozone for smoke, pet, mildew odors. Starting at $150. Mobile service. Call (941) 800-8198.',
   },
   {
     slug: 'engine-bay-detailing',
@@ -528,6 +558,9 @@ export const SERVICES: Service[] = [
           'Yes, when done correctly. We cover sensitive electrical components before rinsing and use low pressure to avoid forcing water into connectors. We have cleaned hundreds of engine bays without incident. We do not recommend washing your own engine bay with a pressure washer without proper protection.',
       },
     ],
+    metaTitle: 'Engine Bay Cleaning Near Me | North Port FL | From $80 | Open 24 Hrs',
+    metaDescription: 'Professional engine bay cleaning near North Port, FL. Safe degreasing, low-pressure rinse & heat-resistant dressing. Cars, trucks & SUVs. From $80. Mobile service. Call (941) 800-8198.',
+    quickAnswer: 'Engine bay cleaning near North Port, FL starts at $80. Sansanich Car Detailing safely degrease and detail your engine compartment using professional degreasers and low-pressure rinsing. Mobile service available. Open 24 hours. Call (941) 800-8198.',
   },
   {
     slug: 'upholstery-leather-cleaning',
@@ -562,6 +595,8 @@ export const SERVICES: Service[] = [
           'Dry, cracking leather is the most obvious sign. But leather should be conditioned before it reaches that stage. If your leather feels stiff or shows fine surface cracks, it needs conditioning. In Florida\'s heat, we recommend conditioning every 3–6 months to prevent premature aging.',
       },
     ],
+    metaTitle: 'Upholstery & Leather Cleaning North Port FL | From $100 | Mobile | 24 Hrs',
+    metaDescription: 'Professional upholstery & leather cleaning in North Port & SW Florida. Fabric shampoo or leather condition to restore softness. Starting at $100. Mobile service. Call (941) 800-8198.',
   },
   {
     slug: 'pet-hair-removal',
@@ -595,6 +630,8 @@ export const SERVICES: Service[] = [
           'Pet hair weaves itself into carpet fibers and upholstery weave, essentially anchoring itself in place. Regular vacuum suction alone cannot pull it out. The secret is agitation — using rubber tools to break the hair free before vacuuming. Our specialized tools and technique make the difference.',
       },
     ],
+    metaTitle: 'Pet Hair Removal From Car — North Port FL | From $75 | Mobile | 24 Hrs',
+    metaDescription: 'Professional pet hair removal from car interiors in North Port & SW Florida. Specialized rubber tools + high-powered vacuum. Starting at $75. Mobile service. Call (941) 800-8198.',
   },
   {
     slug: 'vehicle-protection-packages',
@@ -637,6 +674,8 @@ export const SERVICES: Service[] = [
           'The ceramic paint coating lasts 2–5 years. Glass coatings last 1–2 years. Wheel coatings last 1–3 years with regular washing. All coatings can be refreshed or topped up to extend protection.',
       },
     ],
+    metaTitle: 'Vehicle Protection Package North Port FL | From $800 | Open 24 Hrs',
+    metaDescription: 'Complete vehicle protection packages in North Port & SW Florida. Ceramic paint coating, glass coating, wheel coating & trim sealant. From $800. Free quote: (941) 800-8198.',
   },
 ];
 
@@ -657,6 +696,7 @@ export type City = {
     title: string;
     description: string;
   };
+  cityFaqs?: { question: string; answer: string }[];
 };
 
 export const CITIES: City[] = [
@@ -671,10 +711,28 @@ export const CITIES: City[] = [
     landmarks: ['Warm Mineral Springs', 'Myakkahatchee Creek Environmental Park', 'North Port Aquatic Center', 'CoolToday Park'],
     neighborhoods: ['Bobcat Trail', 'Heron Creek', 'West Villages', 'Price Boulevard corridor', 'Cranberry'],
     meta: {
-      title: 'Car Detailing in North Port, FL | Sansanich Car Detailing',
+      title: 'Car Detailing North Port FL — 5-Star Mobile | Open 24 Hrs | (941) 800-8198',
       description:
-        'Professional mobile & in-shop car detailing in North Port, FL. Interior, exterior, ceramic coating, paint correction & more. Open 24 hours. Call (941) 800-8198.',
+        'Top-rated mobile car detailing in North Port, FL. Interior, exterior, ceramic coating & paint correction. We come to your home or office. Starting at $50. Open 24 hrs. Call (941) 800-8198.',
     },
+    cityFaqs: [
+      {
+        question: 'What car detailing services are available in North Port, FL?',
+        answer: 'Sansanich Car Detailing is based in North Port and offers 14 professional services: interior detailing, exterior detailing, full car detail, ceramic coating, paint correction, clay bar treatment, headlight restoration, hand washing, waxing & polishing, stain & odor removal, engine bay detailing, upholstery & leather cleaning, pet hair removal, and vehicle protection packages.',
+      },
+      {
+        question: 'How much does car detailing cost in North Port, FL?',
+        answer: 'Pricing in North Port starts at $50 for a hand wash, $80 for engine bay detailing, $120 for exterior detailing, $150 for interior detailing, $250 for a full detail, $350 for paint correction, and $500 for ceramic coating. We offer free no-obligation quotes — call (941) 800-8198.',
+      },
+      {
+        question: 'Do you offer mobile car detailing in North Port, FL?',
+        answer: 'Yes. Sansanich Car Detailing is a fully mobile service based in North Port. We come to your home, office, or any location throughout the city. We bring our own water and power. No need to drive to a shop.',
+      },
+      {
+        question: 'How quickly can you arrive for detailing in North Port?',
+        answer: 'As our home base, we can typically reach any North Port location within 15–20 minutes of booking. We are open 24 hours, 7 days a week, with frequent same-day availability.',
+      },
+    ],
   },
   {
     slug: 'port-charlotte',
@@ -685,12 +743,38 @@ export const CITIES: City[] = [
     intro:
       'Port Charlotte residents enjoy quick access to our mobile detailing team — we\'re typically on-site in Port Charlotte within 20–30 minutes of booking. Charlotte County\'s mix of waterfront homes, established neighborhoods, and commercial areas makes mobile detailing especially popular here.',
     landmarks: ['Charlotte Harbor', 'Port Charlotte Town Center Mall', 'Charlotte County Fairgrounds', 'Peace River'],
-    neighborhoods: ['Port Charlotte Beach', 'Deep Creek', 'El Jobean', 'Edgewater', 'Gulf Cove'],
+    neighborhoods: ['Port Charlotte Beach', 'Deep Creek', 'El Jobean', 'Edgewater', 'Gulf Cove', 'Charlotte Shores', 'Harbour Heights', 'Port Charlotte Town Center area'],
     meta: {
-      title: 'Car Detailing in Port Charlotte, FL | Sansanich Car Detailing',
+      title: 'Car Detailing Port Charlotte FL — 5-Star | Same-Day Mobile | Open 24 Hrs',
       description:
-        'Mobile car detailing in Port Charlotte, FL. Ceramic coating, interior & exterior detail, paint correction. Serving all Port Charlotte neighborhoods. Call (941) 800-8198.',
+        '5-star mobile car detailing in Port Charlotte, FL. Ceramic coating, interior & exterior detailing, paint correction. Deep Creek, Gulf Cove & all Charlotte County neighborhoods. From $50. Call (941) 800-8198.',
     },
+    cityFaqs: [
+      {
+        question: 'What car detailing services are available in Port Charlotte, FL?',
+        answer: 'Sansanich Car Detailing offers all 14 professional services in Port Charlotte: interior detailing, exterior detailing, full car detail, ceramic coating, paint correction, clay bar treatment, headlight restoration, hand washing, waxing & polishing, stain & odor removal, engine bay detailing, upholstery & leather cleaning, pet hair removal, and vehicle protection packages.',
+      },
+      {
+        question: 'How much does car detailing cost in Port Charlotte, FL?',
+        answer: 'In Port Charlotte, pricing starts at $50 for a hand wash, $120 for exterior detailing, $150 for interior detailing, $250 for a full detail, $350 for paint correction, and $500 for ceramic coating. We offer free no-obligation quotes — call (941) 800-8198.',
+      },
+      {
+        question: 'Is there mobile car detailing available in Port Charlotte, FL?',
+        answer: 'Yes. Sansanich Car Detailing is a fully mobile service — we come to your home, office, or any location in Port Charlotte. We bring our own water and power. There is no need to drive to a shop.',
+      },
+      {
+        question: 'How quickly can you get to Port Charlotte for detailing?',
+        answer: 'We are typically on-site in Port Charlotte within 20–30 minutes of booking. We are open 24 hours, 7 days a week, and often have same-day availability for Port Charlotte residents.',
+      },
+      {
+        question: 'What neighborhoods in Port Charlotte do you serve?',
+        answer: 'We serve all Port Charlotte neighborhoods including Port Charlotte Beach, Deep Creek, El Jobean, Edgewater, Gulf Cove, Charlotte Shores, Harbour Heights, and all surrounding Charlotte County communities. Call us if you are unsure — we likely cover your area.',
+      },
+      {
+        question: 'How much does ceramic coating cost in Port Charlotte, FL?',
+        answer: 'Ceramic coating in Port Charlotte starts at $500 for a standard vehicle. Multi-layer packages or vehicles requiring paint correction are priced higher. We offer free quotes tailored to your vehicle — call (941) 800-8198.',
+      },
+    ],
   },
   {
     slug: 'venice',
@@ -703,10 +787,24 @@ export const CITIES: City[] = [
     landmarks: ['Venice Beach', 'Venice Fishing Pier', 'Caspersen Beach', 'Historic Downtown Venice', 'Myakka River State Park'],
     neighborhoods: ['Venice Island', 'South Venice', 'Nokomis (adjacent)', 'Laurel', 'Venice Gardens'],
     meta: {
-      title: 'Car Detailing in Venice, FL | Sansanich Car Detailing',
+      title: 'Car Detailing Venice FL — 5-Star Mobile | Ceramic Coating | Open 24 Hrs',
       description:
-        'Professional mobile car detailing in Venice, FL. Protect your paint from salt air with ceramic coating, exterior detail & more. Open 24 hours. Call (941) 800-8198.',
+        'Mobile car detailing in Venice, FL. Salt-air paint protection, ceramic coating, interior & exterior detailing. Venice Island, South Venice & more. Open 24 hrs. Call (941) 800-8198.',
     },
+    cityFaqs: [
+      {
+        question: 'Do you offer mobile car detailing in Venice, FL?',
+        answer: 'Yes. Sansanich Car Detailing serves Venice Island, South Venice, Laurel, Venice Gardens, and all surrounding areas with our full-service mobile detailing unit. We bring all equipment including water and power to your location.',
+      },
+      {
+        question: 'Why is ceramic coating important for cars in Venice, FL?',
+        answer: 'Venice\'s coastal location means vehicles are exposed to salt air, high humidity, and intense UV year-round. Ceramic coating creates a hydrophobic, UV-resistant barrier that protects paint from salt corrosion and oxidation for 2–5 years.',
+      },
+      {
+        question: 'How much does car detailing cost in Venice, FL?',
+        answer: 'Detailing in Venice starts at $50 for a hand wash, $120 for exterior detailing, $150 for interior detailing, $250 for a full detail, and $500 for ceramic coating. Free quotes available — call (941) 800-8198.',
+      },
+    ],
   },
   {
     slug: 'englewood',
@@ -719,10 +817,20 @@ export const CITIES: City[] = [
     landmarks: ['Englewood Beach', 'Lemon Bay', 'Stump Pass Beach State Park', 'Manasota Key', 'Englewood Farmers Market'],
     neighborhoods: ['Englewood Beach', 'Grove City', 'Rotonda West (adjacent)', 'Pine Lake Estates'],
     meta: {
-      title: 'Car Detailing in Englewood, FL | Sansanich Car Detailing',
+      title: 'Car Detailing Englewood FL — 5-Star Mobile | Ceramic Coating | Open 24 Hrs',
       description:
-        'Mobile car detailing in Englewood, FL. Interior & exterior detailing, ceramic coating & paint correction serving Englewood Beach and surrounding areas. Call (941) 800-8198.',
+        'Mobile car detailing in Englewood, FL. Exterior detailing, ceramic coating & interior cleaning. Englewood Beach, Grove City & all areas. Starting at $50. Call (941) 800-8198.',
     },
+    cityFaqs: [
+      {
+        question: 'Do you serve both sides of Englewood, FL?',
+        answer: 'Yes. We serve both the Charlotte County and Sarasota County sides of Englewood, including Englewood Beach, Grove City, Rotonda West (adjacent), and Pine Lake Estates. Our mobile unit covers all areas.',
+      },
+      {
+        question: 'How much does car detailing cost in Englewood, FL?',
+        answer: 'Detailing in Englewood starts at $50 for a hand wash, $120 for exterior detailing, $150 for interior detailing, $250 for a full detail, and $500 for ceramic coating. Call (941) 800-8198 for a free quote.',
+      },
+    ],
   },
   {
     slug: 'punta-gorda',
@@ -735,10 +843,32 @@ export const CITIES: City[] = [
     landmarks: ['Charlotte Harbor Preserve State Park', 'Fishermen\'s Village', 'Historic Downtown Punta Gorda', 'Peace River Wildlife Center', 'Harborwalk'],
     neighborhoods: ['Burnt Store Marina', 'Punta Gorda Isles', 'Harbour Heights', 'Solana', 'Deep Creek'],
     meta: {
-      title: 'Car Detailing in Punta Gorda, FL | Sansanich Car Detailing',
+      title: 'Car Detailing Punta Gorda FL — 5-Star | Ceramic Coating | Open 24 Hrs',
       description:
-        'Mobile car detailing in Punta Gorda, FL. Full interior & exterior detailing, ceramic coating, paint correction. Serving Punta Gorda Isles and surrounding areas. Call (941) 800-8198.',
+        '5-star mobile car detailing in Punta Gorda, FL. Ceramic coating from $500, interior & exterior detailing, paint correction. Punta Gorda Isles & all areas. Call (941) 800-8198.',
     },
+    cityFaqs: [
+      {
+        question: 'What car detailing services are available in Punta Gorda, FL?',
+        answer: 'All of our 14 professional detailing services are available in Punta Gorda: interior detailing, exterior detailing, full car detail, ceramic coating, paint correction, clay bar treatment, headlight restoration, hand washing, waxing & polishing, stain & odor removal, engine bay detailing, and vehicle protection packages.',
+      },
+      {
+        question: 'How much does ceramic coating cost in Punta Gorda, FL?',
+        answer: 'Ceramic coating in Punta Gorda starts at $500 for a standard vehicle. Multi-layer packages or vehicles requiring paint correction before coating are priced higher. We offer free quotes — call (941) 800-8198.',
+      },
+      {
+        question: 'Is mobile car detailing available in Punta Gorda?',
+        answer: 'Yes. We come to your location anywhere in Punta Gorda — including Punta Gorda Isles, Burnt Store Marina, Harbour Heights, and all surrounding areas. We bring our own water and power supply.',
+      },
+      {
+        question: 'How far do you travel for detailing in Punta Gorda?',
+        answer: 'Our base is in North Port, approximately 25 miles from Punta Gorda. We typically arrive in Punta Gorda within 30–40 minutes of booking. We are open 24 hours and often have same-day availability.',
+      },
+      {
+        question: 'What neighborhoods in Punta Gorda do you serve?',
+        answer: 'We serve all Punta Gorda neighborhoods including Punta Gorda Isles, Burnt Store Marina, Harbour Heights, Solana, Deep Creek, and the Historic Downtown Punta Gorda area.',
+      },
+    ],
   },
   {
     slug: 'wellen-park',
@@ -751,10 +881,20 @@ export const CITIES: City[] = [
     landmarks: ['Wellen Park Town Center', 'CoolToday Park (Atlanta Braves spring training)', 'Downtown Wellen', 'Braves Walk of Fame'],
     neighborhoods: ['Grand Palm', 'Oasis', 'Sunstone at Wellen Park', 'Renaissance', 'Brightmore'],
     meta: {
-      title: 'Car Detailing in Wellen Park, FL | Sansanich Car Detailing',
+      title: 'Car Detailing Wellen Park FL — 5-Star Mobile | Same-Day | Open 24 Hrs',
       description:
-        'Mobile car detailing in Wellen Park, FL. Ceramic coating, interior & exterior detailing for new & existing vehicles. Same-day availability. Call (941) 800-8198.',
+        'Mobile car detailing in Wellen Park, FL. Ceramic coating, interior & exterior detailing for new & existing vehicles. Grand Palm, Downtown Wellen & all areas. Call (941) 800-8198.',
     },
+    cityFaqs: [
+      {
+        question: 'Do you offer car detailing in Wellen Park, FL?',
+        answer: 'Yes. Wellen Park is just 10 miles from our North Port base, making us the closest mobile detailer for Wellen Park residents. We serve Grand Palm, Oasis, Sunstone, Renaissance, Brightmore, and all of Downtown Wellen.',
+      },
+      {
+        question: 'What is the best way to protect a new car in Wellen Park, FL?',
+        answer: 'Ceramic coating is the best protection for new vehicles. It creates a durable, hydrophobic layer over your factory paint that resists UV, salt air, bird droppings, and minor scratches for 2–5 years. We offer ceramic coating starting at $500.',
+      },
+    ],
   },
   {
     slug: 'sarasota',
@@ -767,10 +907,32 @@ export const CITIES: City[] = [
     landmarks: ['Siesta Key Beach', 'St. Armands Circle', 'Ringling Museum', 'Sarasota Bayfront', 'UTC Mall area'],
     neighborhoods: ['Palmer Ranch', 'Lakewood Ranch (adjacent)', 'Siesta Key', 'Turtle Rock', 'Gulf Gate'],
     meta: {
-      title: 'Car Detailing in Sarasota, FL | Sansanich Car Detailing',
+      title: 'Car Detailing Sarasota FL — 5-Star Mobile | Paint Correction | Open 24 Hrs',
       description:
-        'Mobile car detailing in Sarasota, FL. Premium interior & exterior detailing, ceramic coating, paint correction for all vehicle types. 5.0★ rated. Call (941) 800-8198.',
+        '5-star premium mobile car detailing in Sarasota, FL. Ceramic coating, paint correction, interior & exterior detailing. Palmer Ranch, Siesta Key & all areas. Call (941) 800-8198.',
     },
+    cityFaqs: [
+      {
+        question: 'Do you offer mobile car detailing in Sarasota, FL?',
+        answer: 'Yes. Sansanich Car Detailing offers fully mobile service in Sarasota — we come to your home or office in Palmer Ranch, Siesta Key, Gulf Gate, Lakewood Ranch (adjacent), and all Sarasota areas. We bring all equipment including water and power.',
+      },
+      {
+        question: 'How much does car detailing cost in Sarasota, FL?',
+        answer: 'Our Sarasota detailing pricing starts at $50 for a hand wash, $120 for exterior detailing, $150 for interior detailing, $250 for a full detail, $350 for paint correction, and $500 for ceramic coating. Contact us for a personalized quote.',
+      },
+      {
+        question: 'What is the best car detailing service in Sarasota, FL?',
+        answer: 'Sansanich Car Detailing is a 5.0-star rated mobile detailing service serving Sarasota. We offer 14 professional services including ceramic coating, paint correction, full interior & exterior detailing, and more — all at your location.',
+      },
+      {
+        question: 'Can you do paint correction in Sarasota, FL?',
+        answer: 'Yes. Paint correction is one of our most popular services in Sarasota. We use machine polishers to remove swirl marks, light scratches, and oxidation from clear coat, restoring paint clarity and gloss. Starting at $350.',
+      },
+      {
+        question: 'Do you serve Siesta Key and Palmer Ranch?',
+        answer: 'Yes. We regularly serve Siesta Key, Palmer Ranch, Gulf Gate, Turtle Rock, and Lakewood Ranch (adjacent). Our mobile unit can reach any Sarasota neighborhood. Call (941) 800-8198 for availability.',
+      },
+    ],
   },
   {
     slug: 'nokomis',
@@ -783,9 +945,9 @@ export const CITIES: City[] = [
     landmarks: ['Nokomis Beach', 'North Jetty Park', 'Lyonia Preserve', 'Blackburn Point Bridge'],
     neighborhoods: ['Nokomis Beach area', 'Sorrento Shores', 'Sunburst Ranch', 'Mission Valley'],
     meta: {
-      title: 'Car Detailing in Nokomis, FL | Sansanich Car Detailing',
+      title: 'Car Detailing Nokomis FL — 5-Star Mobile | Ceramic Coating | Open 24 Hrs',
       description:
-        'Mobile car detailing in Nokomis, FL. Exterior detailing, ceramic coating & interior cleaning serving Nokomis and surrounding Sarasota County communities. Call (941) 800-8198.',
+        'Mobile car detailing in Nokomis, FL. Exterior detailing, ceramic coating & interior cleaning. Nokomis Beach, Sorrento Shores & surrounding Sarasota County areas. Call (941) 800-8198.',
     },
   },
   {
@@ -799,9 +961,9 @@ export const CITIES: City[] = [
     landmarks: ['Oscar Scherer State Park', 'Historic Spanish Point', 'Casey Key', 'Osprey Junction Trailhead'],
     neighborhoods: ['Pine Ranch Estates', 'Southbay Yacht & Racquet Club', 'Rivendell', 'The Oaks'],
     meta: {
-      title: 'Car Detailing in Osprey, FL | Sansanich Car Detailing',
+      title: 'Car Detailing Osprey FL — 5-Star Mobile | Ceramic Coating | Open 24 Hrs',
       description:
-        'Mobile car detailing in Osprey, FL. Full detailing, ceramic coating, paint correction serving Osprey and surrounding Sarasota County areas. Call (941) 800-8198.',
+        'Mobile car detailing in Osprey, FL. Full detailing, ceramic coating & paint correction. Oscar Scherer State Park area, Pine Ranch Estates & all Osprey neighborhoods. Call (941) 800-8198.',
     },
   },
   {
@@ -815,9 +977,9 @@ export const CITIES: City[] = [
     landmarks: ['Rotonda Golf & Country Club', 'Cape Haze Pioneer Trail', 'Englewood Beach (10 min away)', 'Broadmoor neighborhood'],
     neighborhoods: ['Broadmoor', 'Pinehurst', 'White Marsh', 'Oakland Hills', 'Long Meadow'],
     meta: {
-      title: 'Car Detailing in Rotonda West, FL | Sansanich Car Detailing',
+      title: 'Car Detailing Rotonda West FL — 5-Star Mobile | Open 24 Hrs',
       description:
-        'Mobile car detailing in Rotonda West, FL. Interior & exterior detailing, ceramic coating & paint protection. Serving golf community vehicles and all vehicle types. Call (941) 800-8198.',
+        'Mobile car detailing in Rotonda West, FL. Interior & exterior detailing, ceramic coating & paint protection for golf community vehicles. Broadmoor, Pinehurst & all areas. Call (941) 800-8198.',
     },
   },
   {
@@ -831,10 +993,24 @@ export const CITIES: City[] = [
     landmarks: ['Arcadia Historic Downtown', 'Peace River', 'Myakka River State Park (nearby)', 'DeSoto County Fairgrounds', 'Peace River Wildlife Center'],
     neighborhoods: ['Historic Downtown Arcadia', 'Prairie Creek', 'Nocatee area', 'Horse Creek Estates'],
     meta: {
-      title: 'Car Detailing in Arcadia, FL | Sansanich Car Detailing',
+      title: 'Car Detailing Arcadia FL — 5-Star Mobile | DeSoto County | Open 24 Hrs',
       description:
-        'Mobile car detailing in Arcadia, FL. Interior & exterior detailing, ceramic coating & more serving DeSoto County. Open 24 hours. Call (941) 800-8198.',
+        'Mobile car detailing in Arcadia, FL. Interior & exterior detailing, ceramic coating & more serving DeSoto County. Paint correction, clay bar, full details. Open 24 hrs. Call (941) 800-8198.',
     },
+    cityFaqs: [
+      {
+        question: 'Do you offer car detailing in Arcadia, FL?',
+        answer: 'Yes. Sansanich Car Detailing serves Arcadia and DeSoto County with our full range of professional detailing services. We are a mobile service — we come to your location. Open 24 hours. Call (941) 800-8198.',
+      },
+      {
+        question: 'How far do you travel to Arcadia for detailing?',
+        answer: 'Arcadia is approximately 40 miles east of our North Port base. We regularly serve DeSoto County clients including Historic Downtown Arcadia, Prairie Creek, and surrounding areas. Travel fee may apply — call for a quote.',
+      },
+      {
+        question: 'What car detailing services are available in Arcadia, FL?',
+        answer: 'We offer interior detailing, exterior detailing, full car detail, ceramic coating, paint correction, clay bar treatment, headlight restoration, engine bay detailing, and more in Arcadia and DeSoto County.',
+      },
+    ],
   },
 ];
 
@@ -968,8 +1144,134 @@ export const FAQS: FAQ[] = [
   {
     question: 'How do I book an appointment?',
     answer:
-      'Call or text us at (941) 800-8198 anytime — we\'re open 24 hours. You can also fill out our online quote form and we\'ll respond promptly.',
+      'Call or text us at (941) 800-8198 anytime — we\'re open 24 hours. You can also book online at sansanichcardetailing.com/book or fill out our contact form.',
     category: 'Booking',
+  },
+  {
+    question: 'Do you offer same-day car detailing?',
+    answer:
+      'Yes. We are available 24 hours a day, 7 days a week and accommodate same-day requests based on availability. Call or text (941) 800-8198 and we\'ll confirm same-day slots.',
+    category: 'Booking',
+  },
+  {
+    question: 'Can I get a free quote before booking?',
+    answer:
+      'Absolutely. We provide free, no-obligation quotes for every job. Call or text (941) 800-8198, describe your vehicle and the service you need, and we\'ll give you a clear price before any work begins.',
+    category: 'Booking',
+  },
+  {
+    question: 'What is mobile car detailing?',
+    answer:
+      'Mobile car detailing is a professional detailing service where trained technicians travel to your home, office, or any location with all the equipment needed — steam cleaners, extractors, polishers, water supply, and power. You don\'t need to drive anywhere or wait at a shop.',
+    category: 'Mobile Detailing',
+  },
+  {
+    question: 'Can you detail my car at my apartment or office parking lot?',
+    answer:
+      'Yes. We come to apartments, condos, offices, driveways, and parking lots throughout Southwest Florida. Our unit is fully self-contained and does not require access to your utilities for most services.',
+    category: 'Mobile Detailing',
+  },
+  {
+    question: 'Is mobile car detailing as good as a shop?',
+    answer:
+      'Yes. We use the same professional-grade equipment and products in the field as any top-tier detailing shop. Our 5.0-star Google rating from 20 verified reviews reflects results that consistently meet or exceed traditional shop quality — with the added convenience of on-location service.',
+    category: 'Mobile Detailing',
+  },
+  {
+    question: 'What is included in a full car detail?',
+    answer:
+      'Our full car detail includes: complete interior deep clean (full vacuum, steam cleaning, carpet/upholstery shampoo, odor treatment, surface wipe-down and conditioning), and exterior detailing (hand wash with two-bucket method, clay bar decontamination, and wax or paint sealant). Duration: 4–8 hours. Starting at $250.',
+    category: 'Services',
+  },
+  {
+    question: 'What is paint correction and do I need it?',
+    answer:
+      'Paint correction is a machine polishing process that removes swirl marks, water spots, oxidation, and light scratches from the clear coat. If your car\'s paint looks dull, hazy, or marked under direct sunlight, paint correction can restore it to near-showroom finish. Starting at $350.',
+    category: 'Services',
+  },
+  {
+    question: 'Can you remove pet hair from car seats?',
+    answer:
+      'Yes. We use specialized tools and techniques to lift embedded pet hair from fabric and carpet that standard vacuums cannot reach. Pet hair removal is available as a standalone service and as an add-on starting at $75.',
+    category: 'Services',
+  },
+  {
+    question: 'Can you remove smoke smell from a car?',
+    answer:
+      'Yes. Our stain and odor removal service uses enzyme-based cleaners and ozone treatment to neutralize odors at the source — including cigarette smoke, mildew, pet odors, and food smells. Starting at $150.',
+    category: 'Services',
+  },
+  {
+    question: 'What is the difference between car detailing and a car wash?',
+    answer:
+      'A car wash is a quick exterior rinse or scrub (5–15 minutes) using automated equipment. Car detailing is a thorough multi-hour process using professional tools to deep-clean, decontaminate, and protect both the interior and exterior of a vehicle. Detailing produces results that last weeks or months; a car wash lasts days.',
+    category: 'Services',
+  },
+  {
+    question: 'Do you detail engine bays?',
+    answer:
+      'Yes. We safely degrease and dress engine bays using appropriate products that protect wiring and components while removing built-up oil, grime, and debris. Engine bay detailing starts at $80 and takes 1–2 hours.',
+    category: 'Services',
+  },
+  {
+    question: 'How much does ceramic coating cost in Florida?',
+    answer:
+      'Ceramic coating at Sansanich Car Detailing starts at $500 for a standard vehicle. Full vehicle protection packages (ceramic + glass + wheel + trim coatings) start at $800. Given Florida\'s intense UV and salt air, ceramic coating is one of the best investments you can make for your vehicle\'s paint.',
+    category: 'Pricing',
+  },
+  {
+    question: 'How much does interior detailing cost?',
+    answer:
+      'Interior detailing at Sansanich Car Detailing starts at $150. This includes full vacuuming, steam cleaning, carpet and upholstery shampooing, odor treatment, and conditioning of all interior surfaces. Price varies by vehicle size and condition.',
+    category: 'Pricing',
+  },
+  {
+    question: 'Is mobile car detailing more expensive?',
+    answer:
+      'Our mobile detailing is competitively priced with traditional shops. A hand wash starts at $50, interior detail from $150, full detail from $250. The added value is convenience — we come to you, saving you drive time, wait time, and the hassle of leaving your vehicle elsewhere.',
+    category: 'Pricing',
+  },
+  {
+    question: 'Is ceramic coating worth it in Florida?',
+    answer:
+      'Yes — especially in Florida. Florida has some of the harshest UV radiation in the United States, plus coastal humidity and salt air that accelerate paint oxidation. Ceramic coating provides the strongest available protection, preserving gloss, color depth, and resale value for 2–5 years with minimal maintenance.',
+    category: 'Services',
+  },
+  {
+    question: 'How often should I wax my car in Florida?',
+    answer:
+      'In Florida\'s high-UV climate, we recommend waxing every 6–8 weeks. Standard wax degrades faster under intense sun. A synthetic paint sealant (every 3–4 months) or ceramic coating (every 2–5 years) offers more durable protection and is better suited to Florida conditions.',
+    category: 'General',
+  },
+  {
+    question: 'Does Florida sun damage car paint?',
+    answer:
+      'Yes. Florida receives some of the strongest UV radiation in the US. Unprotected clear coat fades and oxidizes within 3–5 years in Florida\'s climate. Regular waxing, paint sealant, or ceramic coating from Sansanich Car Detailing significantly extends the life and appearance of your paint.',
+    category: 'General',
+  },
+  {
+    question: 'What is the best paint protection for Florida weather?',
+    answer:
+      'Ceramic coating is the best long-term paint protection for vehicles in Florida. It provides UV resistance, hydrophobicity, and protection against salt air and humidity. Sansanich Car Detailing offers ceramic coating starting at $500, lasting 2–5 years — far more durable than wax or sealant.',
+    category: 'General',
+  },
+  {
+    question: 'Do you offer fleet vehicle detailing for businesses?',
+    answer:
+      'Yes. We provide fleet detailing services with special pricing for multi-vehicle commercial accounts in North Port, Port Charlotte, Sarasota, and all SW Florida cities. Contact us at (941) 800-8198 to discuss fleet rates.',
+    category: 'General',
+  },
+  {
+    question: 'Why hire a professional detailer instead of doing it yourself?',
+    answer:
+      'Professional detailers use commercial-grade equipment (steam cleaners, dual-action polishers, wet/dry extractors) and professional-strength chemicals not available at retail. DIY detailing risks swirl marks, chemical damage, and incomplete cleaning. Professional results last longer and often improve resale value by more than the cost of the service.',
+    category: 'General',
+  },
+  {
+    question: 'What is Sansanich Car Detailing?',
+    answer:
+      'Sansanich Car Detailing is a professional mobile and in-shop automotive detailing company based in North Port, Florida. Founded to bring genuine skill and reliability to SW Florida\'s detailing market, the business holds a perfect 5.0-star Google rating and serves 11 cities across Sarasota, Charlotte, and DeSoto counties.',
+    category: 'General',
   },
 ];
 

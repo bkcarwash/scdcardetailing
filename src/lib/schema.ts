@@ -42,6 +42,7 @@ export function buildLocalBusinessSchema() {
 
     // Core identity
     name: NAP.name,
+    alternateName: NAP.shortName,
     description:
       'Professional mobile and in-shop car detailing in North Port, FL and throughout Southwest Florida. Services include interior detailing, exterior detailing, ceramic coating, paint correction, headlight restoration, and more. Open 24 hours, 7 days a week.',
     url: SITE_URL,
@@ -288,6 +289,177 @@ export function buildHomePageSchema() {
 }
 
 // ---------------------------------------------------------------------------
+// SpeakableSpecification — signals content relevant for Google Assistant / AIO
+// ---------------------------------------------------------------------------
+export function buildSpeakableSchema(pageUrl: string, cssSelectors: string[] = []) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': pageUrl,
+    url: pageUrl,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: cssSelectors.length > 0 ? cssSelectors : ['h1', '.quick-answer', '[data-speakable]'],
+    },
+  };
+}
+
+// ---------------------------------------------------------------------------
+// ItemList schema — for locations overview and services overview pages
+// ---------------------------------------------------------------------------
+export function buildItemListSchema(items: { name: string; url: string; description: string }[], listName: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: listName,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      url: item.url,
+      description: item.description,
+    })),
+  };
+}
+
+// ---------------------------------------------------------------------------
+// ContactPage schema — signals phone number as primary action for AI/voice
+// ---------------------------------------------------------------------------
+export function buildContactPageSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': `${SITE_URL}/contact#contactpage`,
+    url: `${SITE_URL}/contact`,
+    name: `Contact ${NAP.name}`,
+    description: `Call, text, or message ${NAP.name} for a free quote on mobile or in-shop car detailing in Southwest Florida.`,
+    mainEntity: {
+      '@type': ['LocalBusiness', 'AutomotiveBusiness'],
+      '@id': `${SITE_URL}/#business`,
+      name: NAP.name,
+      telephone: NAP.phone,
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: NAP.phone,
+          contactType: 'customer service',
+          contactOption: ['TollFree', 'HearingImpairedSupported'],
+          areaServed: 'US-FL',
+          availableLanguage: 'English',
+          hoursAvailable: {
+            '@type': 'OpeningHoursSpecification',
+            opens: '00:00',
+            closes: '23:59',
+            dayOfWeek: HOURS.daysOfWeek,
+          },
+        },
+        {
+          '@type': 'ContactPoint',
+          telephone: NAP.phone,
+          contactType: 'reservations',
+          availableLanguage: 'English',
+          hoursAvailable: {
+            '@type': 'OpeningHoursSpecification',
+            opens: '00:00',
+            closes: '23:59',
+            dayOfWeek: HOURS.daysOfWeek,
+          },
+        },
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: NAP.address.street,
+        addressLocality: NAP.address.city,
+        addressRegion: NAP.address.state,
+        postalCode: NAP.address.zip,
+        addressCountry: NAP.address.country,
+      },
+    },
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Organization schema — for /about page entity reinforcement
+// ---------------------------------------------------------------------------
+export function buildOrganizationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
+    name: NAP.name,
+    legalName: NAP.name,
+    alternateName: NAP.shortName,
+    url: SITE_URL,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/logo.webp`,
+      width: 480,
+      height: 480,
+    },
+    description:
+      'Sansanich Car Detailing is a professional mobile and in-shop automotive detailing company based in North Port, Florida. The business serves 11 cities across Southwest Florida with ceramic coating, paint correction, interior detailing, exterior detailing, and more. Open 24 hours, 7 days a week. 5.0-star Google rated.',
+    telephone: NAP.phone,
+    email: 'info@sansanichcardetailing.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: NAP.address.street,
+      addressLocality: NAP.address.city,
+      addressRegion: NAP.address.state,
+      postalCode: NAP.address.zip,
+      addressCountry: NAP.address.country,
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: GEO.latitude,
+      longitude: GEO.longitude,
+    },
+    foundingLocation: {
+      '@type': 'Place',
+      name: 'North Port, Florida',
+    },
+    areaServed: CITIES.map((city) => ({
+      '@type': 'City',
+      name: `${city.name}, ${city.state}`,
+    })),
+    knowsAbout: [
+      'Car Detailing',
+      'Mobile Car Detailing',
+      'Ceramic Coating',
+      'Paint Correction',
+      'Interior Detailing',
+      'Exterior Detailing',
+      'Headlight Restoration',
+      'Engine Bay Cleaning',
+      'Auto Detailing',
+      'Paint Protection',
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: String(RATINGS.ratingValue),
+      reviewCount: String(RATINGS.reviewCount),
+      bestRating: String(RATINGS.bestRating),
+    },
+    sameAs: [
+      SOCIAL.instagram,
+      MAPS.placeUrl,
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: NAP.phone,
+      contactType: 'customer service',
+      availableLanguage: 'English',
+      hoursAvailable: {
+        '@type': 'OpeningHoursSpecification',
+        opens: '00:00',
+        closes: '23:59',
+        dayOfWeek: HOURS.daysOfWeek,
+      },
+    },
+  };
+}
+
+// ---------------------------------------------------------------------------
 // WebSite schema — for sitelinks search box eligibility
 // ---------------------------------------------------------------------------
 export function buildWebSiteSchema() {
@@ -297,6 +469,7 @@ export function buildWebSiteSchema() {
     '@id': `${SITE_URL}/#website`,
     url: SITE_URL,
     name: NAP.name,
+    alternateName: NAP.shortName,
     description:
       'Professional mobile & in-shop car detailing in North Port, FL and Southwest Florida.',
     publisher: {

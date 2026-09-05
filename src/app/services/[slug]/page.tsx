@@ -29,13 +29,16 @@ export async function generateMetadata({
   const service = SERVICES.find((s) => s.slug === slug);
   if (!service) return {};
 
+  const title = service.metaTitle ?? `${service.name} | Sansanich Car Detailing — North Port, FL`;
+  const description = service.metaDescription ?? `${service.shortDescription} ${service.priceRange}. Mobile & in-shop service in North Port, FL and throughout SW Florida. Call (941) 800-8198.`;
+
   return {
-    title: `${service.name} | Sansanich Car Detailing — North Port, FL`,
-    description: `${service.shortDescription} ${service.priceRange}. Mobile & in-shop service in North Port, FL and throughout SW Florida. Call (941) 800-8198.`,
+    title,
+    description,
     alternates: { canonical: `${SITE_URL}/services/${slug}` },
     openGraph: {
-      title: `${service.name} | Sansanich Car Detailing`,
-      description: service.shortDescription,
+      title: service.metaTitle ?? `${service.name} | Sansanich Car Detailing`,
+      description: service.metaDescription ?? service.shortDescription,
       url: `${SITE_URL}/services/${slug}`,
     },
   };
@@ -106,6 +109,14 @@ export default async function ServicePage({
             <p className="text-[#a0a0a0] text-lg leading-relaxed mb-6">
               {service.shortDescription}
             </p>
+
+            {/* Quick Answer — AIO/Featured Snippet target */}
+            {service.quickAnswer && (
+              <div className="mb-6 p-4 bg-[rgba(212,169,58,0.06)] border border-[rgba(212,169,58,0.2)] rounded-xl">
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#d4a93a] mb-1.5">Quick Answer</p>
+                <p className="text-[#d0d0d0] text-sm leading-relaxed">{service.quickAnswer}</p>
+              </div>
+            )}
 
             {/* Badges */}
             <div className="flex flex-wrap gap-3">

@@ -157,10 +157,10 @@ export function Header() {
               <span>{NAP.phoneDisplay}</span>
             </a>
             <Link
-              href="/contact"
+              href="/book"
               className="px-5 py-2.5 bg-[#d4a93a] text-black text-sm font-bold rounded-md hover:bg-[#e8c96b] transition-colors duration-200 uppercase tracking-wide"
             >
-              Get a Quote
+              Book Now
             </Link>
           </div>
 

@@ -3,7 +3,7 @@ import { MapPin, Phone, Clock, ExternalLink } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { ContactForm } from '@/components/ContactForm';
-import { buildBreadcrumbSchema } from '@/lib/schema';
+import { buildBreadcrumbSchema, buildContactPageSchema } from '@/lib/schema';
 import { NAP, HOURS, SOCIAL, MAPS, SITE_URL } from '@/lib/siteConfig';
 
 export const metadata: Metadata = {
@@ -23,6 +23,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: SITE_URL },
   { name: 'Contact', url: `${SITE_URL}/contact` },
 ]);
+const contactPageSchema = buildContactPageSchema();
 
 const CONTACT_ITEMS = [
   {
@@ -60,6 +61,7 @@ export default function ContactPage() {
   return (
     <>
       <JsonLd schema={breadcrumbSchema} />
+      <JsonLd schema={contactPageSchema} />
 
       {/* Hero */}
       <section className="pt-20 sm:pt-24 pb-12 bg-[#080808]">
