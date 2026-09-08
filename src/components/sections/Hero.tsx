@@ -122,22 +122,33 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4"
         >
           <a
             href={`tel:${NAP.phone}`}
-            className="group flex items-center gap-3 px-8 py-4 bg-[#d4a93a] text-black font-bold text-base uppercase tracking-wide rounded-lg hover:bg-[#e8c96b] transition-all duration-200 shadow-[0_4px_30px_rgba(212,169,58,0.35)] hover:shadow-[0_4px_40px_rgba(212,169,58,0.55)] min-w-[220px] justify-center"
-            aria-label={`Call us at ${NAP.phoneDisplay}`}
+            className="group flex items-center gap-3 px-8 py-4 bg-[#d4a93a] text-black font-bold text-base uppercase tracking-wide rounded-lg hover:bg-[#e8c96b] transition-all duration-200 shadow-[0_4px_30px_rgba(212,169,58,0.45)] hover:shadow-[0_4px_50px_rgba(212,169,58,0.7)] min-w-[240px] justify-center"
+            aria-label={`Call SCD Car Detailing at ${NAP.phoneDisplay}`}
+            data-speakable
           >
-            <Phone size={18} className="group-hover:scale-110 transition-transform" />
-            <span>{NAP.phoneDisplay}</span>
+            <Phone size={20} className="group-hover:scale-110 transition-transform" />
+            <span>Call {NAP.phoneDisplay}</span>
           </a>
           <Link
-            href="/contact"
+            href="/book"
             className="flex items-center gap-3 px-8 py-4 bg-transparent text-white font-bold text-base uppercase tracking-wide rounded-lg border-2 border-[#2a2a2a] hover:border-[#d4a93a] hover:text-[#d4a93a] transition-all duration-200 min-w-[220px] justify-center"
           >
-            Get a Free Quote
+            Book Online
           </Link>
+        </MotionDiv>
+        <MotionDiv
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="mb-12"
+        >
+          <p className="text-[#d4a93a] text-xs font-semibold uppercase tracking-widest">
+            Open 24 Hours · Same-Day Available · Mobile to Your Door
+          </p>
         </MotionDiv>
 
         {/* Service highlights */}

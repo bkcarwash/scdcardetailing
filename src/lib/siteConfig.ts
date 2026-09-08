@@ -18,6 +18,7 @@ export const NAP = {
   phone: '+19418008198',
   phoneDisplay: '(941) 800-8198',
   phoneFriendly: '941-800-8198',
+  phoneInternational: '+1 941-800-8198',
 } as const;
 
 export const HOURS = {

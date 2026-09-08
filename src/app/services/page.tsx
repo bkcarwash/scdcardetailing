@@ -170,8 +170,7 @@ export default function ServicesPage() {
 
       <CTASection
         heading="Not Sure Which Service You Need?"
-        subheading="Call us and describe your vehicle — we'll recommend the right service and give you a free quote."
-        primaryCta={{ label: 'Get a Free Quote', href: '/contact' }}
+        subheading="Call us — we'll recommend the right service and give you a free quote on the spot."
       />
     </>
   );

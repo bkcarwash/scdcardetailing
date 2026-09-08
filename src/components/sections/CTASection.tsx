@@ -1,19 +1,17 @@
 import Link from 'next/link';
-import { Phone, ArrowRight } from 'lucide-react';
+import { Phone, Calendar } from 'lucide-react';
 import { NAP, HOURS } from '@/lib/siteConfig';
 
 type CTASectionProps = {
   heading?: string;
   subheading?: string;
-  primaryCta?: { label: string; href: string } | null;
-  showPhone?: boolean;
+  showBook?: boolean;
 };
 
 export function CTASection({
-  heading = "Ready for a showroom-clean vehicle?",
-  subheading = "Book mobile detailing that comes to your home or office — or call us anytime.",
-  primaryCta = { label: "Get a Free Quote", href: "/contact" },
-  showPhone = true,
+  heading = "Get a Showroom-Clean Vehicle Today",
+  subheading = "Call or text anytime — we're open 24 hours. Mobile service comes to your home or office.",
+  showBook = true,
 }: CTASectionProps) {
   return (
     <section
@@ -26,7 +24,7 @@ export function CTASection({
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(212,169,58,0.07) 0%, transparent 70%)',
+            'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(212,169,58,0.08) 0%, transparent 70%)',
         }}
         aria-hidden="true"
       />
@@ -35,7 +33,7 @@ export function CTASection({
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="text-[#d4a93a] text-xs font-bold uppercase tracking-widest mb-4">
-          {HOURS.display} — Mobile Service
+          {HOURS.display} — Call or Text Anytime
         </p>
 
         <h2
@@ -50,26 +48,31 @@ export function CTASection({
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          {primaryCta && (
+          {/* PRIMARY — Call Now (gold, dominant) */}
+          <a
+            href={`tel:${NAP.phone}`}
+            className="flex items-center gap-3 px-8 py-4 bg-[#d4a93a] text-black font-bold rounded-lg hover:bg-[#e8c96b] transition-all duration-200 uppercase tracking-wide text-sm shadow-[0_4px_30px_rgba(212,169,58,0.4)] hover:shadow-[0_4px_50px_rgba(212,169,58,0.65)] min-w-[240px] justify-center"
+            aria-label={`Call SCD Car Detailing at ${NAP.phoneDisplay}`}
+          >
+            <Phone size={18} />
+            <span>Call {NAP.phoneDisplay}</span>
+          </a>
+
+          {/* SECONDARY — Book Online */}
+          {showBook && (
             <Link
-              href={primaryCta.href}
-              className="flex items-center gap-2 px-8 py-4 bg-[#d4a93a] text-black font-bold rounded-lg hover:bg-[#e8c96b] transition-all duration-200 uppercase tracking-wide text-sm shadow-[0_4px_30px_rgba(212,169,58,0.35)] hover:shadow-[0_4px_40px_rgba(212,169,58,0.55)]"
+              href="/book"
+              className="flex items-center gap-2 px-8 py-4 border border-[#2a2a2a] text-white font-bold rounded-lg hover:border-[#d4a93a] hover:text-[#d4a93a] transition-all duration-200 uppercase tracking-wide text-sm min-w-[200px] justify-center"
             >
-              {primaryCta.label}
-              <ArrowRight size={16} />
+              <Calendar size={16} />
+              Book Online
             </Link>
           )}
-          {showPhone && (
-            <a
-              href={`tel:${NAP.phone}`}
-              className="flex items-center gap-2 px-8 py-4 border border-[#2a2a2a] text-white font-bold rounded-lg hover:border-[#d4a93a] hover:text-[#d4a93a] transition-all duration-200 uppercase tracking-wide text-sm"
-              aria-label={`Call us at ${NAP.phoneDisplay}`}
-            >
-              <Phone size={16} />
-              {NAP.phoneDisplay}
-            </a>
-          )}
         </div>
+
+        <p className="mt-6 text-[#555] text-xs">
+          Open 24/7 · North Port · Port Charlotte · Venice · Sarasota · Punta Gorda & more
+        </p>
       </div>
     </section>
   );

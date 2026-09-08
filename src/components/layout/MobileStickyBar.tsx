@@ -11,23 +11,35 @@ export function MobileStickyBar() {
       role="complementary"
       aria-label="Quick actions"
     >
-      <div className="flex items-stretch h-16">
+      <div className="flex items-stretch h-[4.5rem]">
+        {/* Call — primary, gold, takes more width */}
         <a
           href={`tel:${NAP.phone}`}
-          className="flex-1 flex items-center justify-center gap-2 bg-[#d4a93a] text-black font-bold text-sm uppercase tracking-wide active:bg-[#b8891e] transition-colors"
-          aria-label={`Call us now at ${NAP.phoneDisplay}`}
+          className="flex-[3] flex flex-col items-center justify-center gap-0.5 bg-[#d4a93a] text-black active:bg-[#b8891e] transition-colors"
+          aria-label={`Call SCD Car Detailing at ${NAP.phoneDisplay}`}
         >
-          <Phone size={18} />
-          <span>Call Now</span>
+          <div className="flex items-center gap-2">
+            {/* Pulse dot */}
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-50" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-black" />
+            </span>
+            <Phone size={18} />
+            <span className="font-bold text-sm uppercase tracking-wide">Call Now</span>
+          </div>
+          <span className="text-xs font-semibold opacity-80">{NAP.phoneDisplay}</span>
         </a>
+
         <div className="w-px bg-[#a8821e]" aria-hidden="true" />
+
+        {/* Book — secondary */}
         <Link
-          href="/contact"
-          className="flex-1 flex items-center justify-center gap-2 bg-[#1a1a1a] text-white font-bold text-sm uppercase tracking-wide active:bg-[#2a2a2a] transition-colors"
-          aria-label="Get a free quote"
+          href="/book"
+          className="flex-[2] flex flex-col items-center justify-center gap-0.5 bg-[#1a1a1a] text-white active:bg-[#2a2a2a] transition-colors"
+          aria-label="Book online"
         >
           <Calendar size={18} className="text-[#d4a93a]" />
-          <span>Book Now</span>
+          <span className="font-bold text-xs uppercase tracking-wide">Book Online</span>
         </Link>
       </div>
     </div>

@@ -189,9 +189,8 @@ export default function LocationsPage() {
       </SectionWrapper>
 
       <CTASection
-        heading="Don't See Your City?"
-        subheading="Call us — we serve a wide area across Southwest Florida and may still be able to come to you."
-        primaryCta={{ label: 'Call (941) 800-8198', href: 'tel:+19418008198' }}
+        heading="Don't See Your City? Call Us."
+        subheading="We serve a wide area across Southwest Florida and may still be able to come to you."
       />
     </>
   );

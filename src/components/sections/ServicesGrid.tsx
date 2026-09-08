@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import { SERVICES } from '@/lib/siteConfig';
+import { ArrowRight, Phone } from 'lucide-react';
+import { SERVICES, NAP } from '@/lib/siteConfig';
 import { SectionWrapper, SectionHeading } from '@/components/ui/SectionWrapper';
 
 export function ServicesGrid() {
@@ -65,11 +65,19 @@ export function ServicesGrid() {
         </span>
       </div>
 
-      {/* CTA */}
-      <div className="mt-8 text-center">
+      {/* CTAs */}
+      <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href={`tel:${NAP.phone}`}
+          className="flex items-center gap-2 px-7 py-3.5 bg-[#d4a93a] text-black font-bold rounded-lg hover:bg-[#e8c96b] transition-all duration-200 uppercase tracking-wide text-sm shadow-[0_4px_20px_rgba(212,169,58,0.3)]"
+          aria-label={`Call SCD Car Detailing at ${NAP.phoneDisplay}`}
+        >
+          <Phone size={16} />
+          Call to Book: {NAP.phoneDisplay}
+        </a>
         <Link
           href="/services"
-          className="inline-flex items-center gap-2 px-6 py-3 border border-[#2a2a2a] text-[#a0a0a0] rounded-lg hover:border-[#d4a93a] hover:text-[#d4a93a] transition-colors duration-200 text-sm font-medium"
+          className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#2a2a2a] text-[#a0a0a0] rounded-lg hover:border-[#d4a93a] hover:text-[#d4a93a] transition-colors duration-200 text-sm font-medium"
         >
           View all services
           <ArrowRight size={16} />

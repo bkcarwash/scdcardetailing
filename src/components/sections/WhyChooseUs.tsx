@@ -1,5 +1,6 @@
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Phone } from 'lucide-react';
 import { SectionWrapper, SectionHeading } from '@/components/ui/SectionWrapper';
+import { NAP } from '@/lib/siteConfig';
 
 const REASONS = [
   {
@@ -99,6 +100,22 @@ export function WhyChooseUs() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Pay-per-call CTA */}
+      <div className="mt-14 rounded-2xl bg-[#111] border border-[rgba(212,169,58,0.2)] p-8 text-center">
+        <p className="text-[#d4a93a] text-xs font-bold uppercase tracking-widest mb-3">Open 24 Hours — Call or Text Anytime</p>
+        <a
+          href={`tel:${NAP.phone}`}
+          className="inline-flex items-center gap-3 text-3xl font-bold text-white hover:text-[#d4a93a] transition-colors duration-200"
+          style={{ fontFamily: 'var(--font-display)' }}
+          aria-label={`Call SCD Car Detailing at ${NAP.phoneDisplay}`}
+          data-speakable
+        >
+          <Phone size={28} className="text-[#d4a93a]" />
+          {NAP.phoneDisplay}
+        </a>
+        <p className="text-[#555] text-sm mt-3">North Port · Port Charlotte · Venice · Sarasota · Punta Gorda & all of SW Florida</p>
       </div>
     </SectionWrapper>
   );

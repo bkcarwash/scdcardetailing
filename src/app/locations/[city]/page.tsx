@@ -283,9 +283,8 @@ export default async function CityPage({
       </SectionWrapper>
 
       <CTASection
-        heading={`Book ${city.name} Car Detailing Today`}
-        subheading={`Mobile service throughout ${city.name} and all of Southwest Florida. Available 24 hours — call, text, or request a quote online.`}
-        primaryCta={{ label: `Get a ${city.name} Quote`, href: '/contact' }}
+        heading={`Call for ${city.name} Car Detailing — Open 24 Hours`}
+        subheading={`Mobile service throughout ${city.name} and all of Southwest Florida. Call or text (941) 800-8198 — same-day available.`}
       />
     </>
   );
