@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL, SERVICE_SLUGS, CITY_SLUGS } from '@/lib/siteConfig';
+import { getAllCityServiceParams } from '@/lib/cityServicePages';
 
 // Real build date — NOT `new Date()`. A timestamp that changes every build
 // signals to Googlebot that every page "changed" constantly, which dilutes
@@ -75,5 +76,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticPages, ...servicePages, ...locationPages];
+  // City + service exact-match keyword pages
+  const cityServicePages: MetadataRoute.Sitemap = getAllCityServiceParams().map(({ city, service }) => ({
+    url: `${SITE_URL}/locations/${city}/${service}`,
+    lastModified: LAST_MODIFIED,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...servicePages, ...locationPages, ...cityServicePages];
 }

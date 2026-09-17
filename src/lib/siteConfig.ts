@@ -994,9 +994,9 @@ export const CITIES: City[] = [
     landmarks: ['Arcadia Historic Downtown', 'Peace River', 'Myakka River State Park (nearby)', 'DeSoto County Fairgrounds', 'Peace River Wildlife Center'],
     neighborhoods: ['Historic Downtown Arcadia', 'Prairie Creek', 'Nocatee area', 'Horse Creek Estates'],
     meta: {
-      title: 'Car Detailing Arcadia FL — 5-Star Mobile | DeSoto County | Open 24 Hrs',
+      title: 'Car Detailing Services Arcadia FL — Mobile Auto Detailing | DeSoto County | Open 24 Hrs',
       description:
-        'Mobile car detailing in Arcadia, FL. Interior & exterior detailing, ceramic coating & more serving DeSoto County. Paint correction, clay bar, full details. Open 24 hrs. Call (941) 800-8198.',
+        'Mobile auto detailing services in Arcadia, FL — ceramic coating, paint correction, headlight restoration & more throughout DeSoto County. Arcadia detailing experts. Open 24 hrs. Call (941) 800-8198.',
     },
     cityFaqs: [
       {
